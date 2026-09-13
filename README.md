@@ -1,124 +1,197 @@
 # 🧠 Mental Health in Tech Analytics
 
-An end-to-end exploratory data analysis and interactive Streamlit dashboard exploring mental health treatment patterns among technology employees, built on the **2014 Mental Health in Tech Survey** (1,259 respondents).
+## Project Overview
+
+This project focuses on analyzing mental health treatment patterns among technology employees using the **2014 Mental Health in Tech Survey**. The analysis explores demographic, personal, and workplace factors associated with mental health treatment-seeking behavior.
+
+The project follows an end-to-end exploratory data analysis workflow, including data cleaning, feature engineering, univariate, bivariate and multivariate analysis, correlation analysis, and statistical hypothesis testing using Chi-square tests and Cramér's V.
+
+The findings are translated into actionable workplace insights and presented through an interactive multi-page **Streamlit dashboard** designed for both technical and non-technical stakeholders.
 
 ---
 
-## 📌 Project Overview
+## Business Objectives
 
-Mental health is a critical but often under-addressed workplace issue, particularly in the technology industry, where high-pressure environments and inconsistent organizational support are common. This project analyzes the 2014 Mental Health in Tech Survey to understand **which demographic, personal, and workplace factors are most strongly associated with mental health treatment-seeking behavior**.
-
-The project follows a structured EDA workflow — data cleaning, feature engineering, univariate and multivariate visualization, correlation analysis, and statistical hypothesis testing (Chi-square tests and Cramér's V) — and translates the findings into an interactive multi-page dashboard for non-technical stakeholders.
-
-**Live dashboard:** *[add your deployed Streamlit app link here]*
-
----
-
-## 🎯 Business Objective
-
-Identify the major factors associated with mental health treatment among technology employees and translate those insights into practical workplace recommendations. Specifically, the analysis aims to help organizations:
-
-- Understand patterns in employee mental health treatment
-- Identify groups with substantially different treatment rates
-- Evaluate the relationship between workplace support and treatment behavior
-- Quantify how work interference relates to treatment
-- Identify gaps in mental health benefits, care options, and workplace support
-- Use statistically validated relationships (not just visual trends) to prioritize interventions
+- Identify the key factors associated with mental health treatment.
+- Analyze demographic and workplace characteristics of survey respondents.
+- Examine the relationship between workplace support and treatment behavior.
+- Evaluate how work interference relates to mental health treatment.
+- Identify gaps in mental health benefits, care options, and workplace support.
+- Validate important relationships using statistical analysis.
+- Generate data-driven recommendations to support workplace mental health initiatives.
 
 ---
 
-## 🔑 Key Findings
+## Tools & Technologies
 
-| Finding | Detail |
-|---|---|
-| **Overall treatment rate** | ~50.6% (637 of 1,259 respondents reported receiving treatment) |
-| **Strongest predictor** | Work interference — 85.4% treatment rate among those who report it "often" vs. 14.1% among those who report "never" |
-| **Second strongest predictor** | Family history — 74.2% treatment rate with a family history vs. 35.5% without |
-| **Workplace support** | Higher treatment rates observed among respondents reporting access to care options and mental health benefits |
-| **Geography** | The U.S. accounts for the majority of respondents, with California the most represented state — sample is not globally representative |
-| **Statistically significant factors** (Chi-square / Cramér's V) | Work interference, family history, care options, benefits, gender |
-| **Not statistically significant** | Age group, remote work status, company size, supervisor attitudes, several physical-health perception variables |
-
-> ⚠️ The survey is observational — all relationships identified are **associations, not causal effects**. Findings should inform population-level workplace policy, not be used to label or profile individual employees.
-
----
-
-## 🗂️ Dataset
-
-- **Source:** 2014 Mental Health in Tech Survey (OSMI)
-- **Size:** 1,259 respondents, 27 original variables
-- **Target variable:** `treatment` — whether the respondent reported receiving treatment for a mental health condition
-- **Variable categories:** demographics (age, gender, state), employment (company size, remote work, tech company), mental health history and treatment, workplace support (benefits, care options, wellness programs, anonymity, leave), and perceptions (coworker/supervisor attitudes, interview concerns)
-
-### Data Cleaning Highlights
-- 8 invalid `Age` values (negative or unrealistic) converted to missing; valid range retained as 18–72
-- `Gender` free-text responses standardized into `Male`, `Female`, `Other`
-- Missing `state` and `self_employed` values labeled `Unknown` rather than imputed
-- Missing `work_interfere` labeled `Not Answered` (kept distinct from `Never`)
-- `comments` field excluded from quantitative analysis (~86.97% missing)
-- Derived features engineered: `Age Group`, `Company Size Group`, `Remote Work Status`, `Mental Health History`, `Treatment Status`, `Work Interference Level`
-
-Cleaned dataset output: `outputs/cleaned_data/mental_health_tech_cleaned.csv`
+- Python
+- Jupyter Notebook
+- Pandas
+- NumPy
+- SciPy
+- Matplotlib
+- Seaborn
+- Plotly
+- Streamlit
+- Statistical Analysis
+- Git & GitHub
 
 ---
 
-## 🛠️ Tech Stack
+## Project Workflow
 
-- **Language:** Python
-- **Analysis:** pandas, NumPy, SciPy (`chi2_contingency`)
-- **Visualization:** Plotly Express / Plotly Graph Objects
-- **Dashboard:** Streamlit (multi-page app)
-- **Notebook:** Jupyter (`Mental_Health_Tech_EDA.ipynb`)
+### 1. Data Preparation
+
+- Inspected the 2014 Mental Health in Tech Survey dataset.
+- Cleaned invalid and unrealistic age values.
+- Standardized gender responses.
+- Handled missing values across key variables.
+- Retained missing and uncertain responses as distinct categories where appropriate.
+- Excluded the high-missingness `comments` field from quantitative analysis.
+
+### 2. Feature Engineering
+
+- Created age groups.
+- Grouped company sizes.
+- Classified remote work status.
+- Created mental health history indicators.
+- Created treatment status categories.
+- Converted work interference levels into an ordinal analytical feature.
+
+### 3. Exploratory Data Analysis
+
+- Univariate analysis of demographic and mental health variables.
+- Bivariate analysis of treatment rates across key factors.
+- Multivariate analysis of treatment patterns.
+- Correlation analysis using Spearman correlation.
+- Geographic analysis of respondent distribution.
+
+### 4. Statistical Validation
+
+- Chi-square Test of Independence
+- Cramér's V effect size
+- Statistical significance testing
+- Comparison of significant and non-significant relationships
 
 ---
 
-## 📁 Repository Structure
+## Key Analysis
 
-```
-mental-health-in-tech-analytics/
+- Mental Health Treatment Distribution
+- Age & Gender Analysis
+- Family History & Treatment
+- Work Interference & Treatment
+- Mental Health Benefits & Treatment
+- Care Options & Treatment
+- Perceived Anonymity & Treatment
+- Remote Work & Treatment
+- Company Size & Treatment
+- Workplace Mental Health Culture
+- Geographic Distribution
+- Multivariate Relationships
+- Statistical Significance & Effect Size
+
+---
+
+## Key Findings
+
+- **Overall treatment rate:** Approximately **50.6%** of respondents reported receiving mental health treatment.
+- **Work interference:** Treatment rates increased substantially with the level of work interference — **85.4%** among respondents reporting interference "Often" compared with **14.1%** among those reporting "Never".
+- **Family history:** Respondents with a family history of mental health conditions had a **74.2%** treatment rate compared with **35.5%** among those without a family history.
+- **Care options:** Awareness of available mental health care options was significantly associated with treatment behavior.
+- **Mental health benefits:** Respondents reporting access to mental health benefits showed higher treatment rates.
+- **Statistical validation:** Work interference, family history, care options, benefits, and gender showed statistically significant associations with treatment.
+- **Non-significant factors:** Age group, remote work status, company size, and several workplace perception variables did not show statistically significant associations.
+
+> **Note:** The analysis identifies associations rather than causal relationships. The findings should be interpreted at a population level and should not be used to profile or label individual employees.
+
+---
+
+## Business Insights
+
+- Work interference represents the strongest treatment-related signal identified in the analysis.
+- Organizations can strengthen early support pathways for employees experiencing mental health difficulties that affect their work.
+- Providing mental health benefits alone may not be sufficient; employees also need clear awareness of available care options.
+- Improving communication around mental health resources can help make support easier to access.
+- Mental health initiatives should focus on employee needs and workplace conditions rather than demographic profiling.
+- Confidentiality and trust remain important considerations when designing workplace mental health programs.
+
+---
+
+## Project Deliverables
+
+This repository contains:
+
+- **Jupyter Notebook (.ipynb)** – Complete data cleaning, exploratory analysis, visualization, feature engineering, and statistical validation.
+- **Streamlit Dashboard** – Interactive multi-page dashboard presenting the analysis and business insights.
+- **Cleaned Dataset (.csv)** – Processed datasets used for analysis and dashboard development.
+- **Chart Outputs (.png)** – Exported visualizations generated during the analysis.
+- **Requirements File (.txt)** – Python dependencies required to run the project.
+
+---
+
+## Repository Structure
+
+```text
+mental-health-in-tech-analysis/
 │
-├── Mental_Health_Tech_EDA.ipynb        # Full EDA notebook: cleaning, viz, stats
-├── Overview.py                         # Streamlit app entry point / home page
+├── Notebooks/
+│   └── Mental_Health_Tech_EDA.ipynb
 │
 ├── pages/
-│   ├── 2_Respondent_Profile.py         # Demographics deep-dive
-│   ├── 3_Workplace_Support___Culture.py# Benefits, care options, culture
-│   ├── 4_Mental_Health___Treatment.py  # Treatment patterns & history
-│   ├── 5_Statistical_Analysis.py       # Chi-square tests & Cramér's V
-│   └── 6_Executive_Insights.py         # Summary insights & recommendations
+│   ├── 2_Respondent_Profile.py
+│   ├── 3_Workplace_Support_&_Culture.py
+│   ├── 4_Mental_Health_&_Treatment.py
+│   ├── 5_Statistical_Analysis.py
+│   └── 6_Executive_Insights.py
 │
 ├── utils/
-│   ├── data_loader.py                  # Loads and caches the cleaned dataset
-│   ├── analytics.py                    # Treatment-rate & grouping helper functions
-│   └── styling.py                      # Shared page styling and layout helpers
+│   ├── analytics.py
+│   ├── data_loader.py
+│   └── styling.py
+│
+├── data/
+│   └── survey.csv
 │
 ├── outputs/
+│   ├── charts/
 │   └── cleaned_data/
-│       └── mental_health_tech_cleaned.csv
+│       ├── mental_health_tech_cleaned.csv
+│       └── mental_health_tech_final.csv
 │
+├── Overview.py
 ├── requirements.txt
 └── README.md
 ```
 
-> **Note:** File names above reflect the underlying Streamlit page scripts (`2_Respondent_Profile.py`, etc.); place them inside a `pages/` directory for Streamlit's native multi-page navigation to pick them up.
-
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
+
 - Python 3.9+
+- Git
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/mental-health-in-tech-analytics.git
-cd mental-health-in-tech-analytics
+git clone https://github.com/T3MP35TT/mental-health-in-tech-analysis.git
 
-# Create and activate a virtual environment (optional but recommended)
+# Navigate to the project directory
+cd mental-health-in-tech-analysis
+
+# Create a virtual environment
 python -m venv venv
-source venv/bin/activate      # Windows: venv\Scripts\activate
+
+# Activate the virtual environment
+
+# Windows
+venv\Scripts\activate
+
+# macOS / Linux
+source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
@@ -130,56 +203,89 @@ pip install -r requirements.txt
 streamlit run Overview.py
 ```
 
-The app will open at `http://localhost:8501`, with page navigation for Respondent Profile, Workplace Support & Culture, Mental Health & Treatment, Statistical Analysis, and Executive Insights available in the sidebar.
+The dashboard will be available at:
+
+```text
+http://localhost:8501
+```
 
 ### Run the Notebook
 
 ```bash
-jupyter notebook Mental_Health_Tech_EDA.ipynb
+jupyter notebook Notebooks/Mental_Health_Tech_EDA.ipynb
 ```
 
 ---
 
-## 📊 Dashboard Pages
+## Dashboard Pages
 
 | Page | Description |
 |---|---|
-| **Overview** | KPI summary — treatment rate, family history rate, work-interference rate |
-| **Respondent Profile** | Age, gender, and geographic distribution of survey respondents |
-| **Workplace Support & Culture** | Benefits, care options, wellness programs, anonymity, and leave policy analysis |
-| **Mental Health & Treatment** | Treatment status, family history, and work-interference patterns |
-| **Statistical Analysis** | Chi-square significance tests and Cramér's V effect sizes across all candidate factors |
-| **Executive Insights** | Consolidated, non-technical summary of findings and workplace recommendations |
+| **Overview** | Project overview, KPIs, and high-level findings |
+| **Respondent Profile** | Demographic and geographic analysis |
+| **Workplace Support & Culture** | Benefits, care options, wellness programs, anonymity, leave, and workplace culture |
+| **Mental Health & Treatment** | Treatment patterns, family history, and work interference |
+| **Statistical Analysis** | Chi-square tests, statistical significance, and Cramér's V |
+| **Executive Insights** | Key findings, business implications, and recommendations |
 
 ---
 
-## 💡 Recommendations
+## Skills Demonstrated
 
-1. **Prioritize employees reporting work interference** — the single strongest signal associated with treatment-seeking; early identification and support pathways here have the highest potential impact.
-2. **Improve visibility and accessibility of care options and benefits** — awareness gaps, not just availability, appear to matter.
-3. **Strengthen confidentiality and anonymity assurances** to reduce stigma-related barriers to seeking help.
-4. **Avoid demographic profiling** — factors like age and company size were not statistically significant; interventions should be need-based, not identity-based.
-5. **Interpret geographic findings cautiously** — the sample skews heavily U.S./California, limiting global generalizability.
-
----
-
-## ⚠️ Limitations
-
-- Self-reported, observational survey data — no causal claims can be made
-- Data collected in 2014; workplace mental health norms and policies may have shifted since
-- Sample skews toward U.S.-based and male respondents, limiting demographic and geographic generalizability
-- `comments` free-text field excluded from analysis due to high missingness
-
----
-
-## 👤 Author
-
-**[Your Name]**
-Data Analyst
-[LinkedIn](#) · [Portfolio](#) · [GitHub](#)
+- Exploratory Data Analysis (EDA)
+- Data Cleaning & Preprocessing
+- Feature Engineering
+- Statistical Analysis
+- Hypothesis Testing
+- Chi-square Testing
+- Cramér's V
+- Spearman Correlation
+- Data Visualization
+- Multivariate Analysis
+- Python
+- Pandas
+- NumPy
+- SciPy
+- Seaborn
+- Plotly
+- Streamlit
+- Business Analysis
+- Data Storytelling
+- Dashboard Development
 
 ---
 
-## 📄 License
+## Future Enhancements
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+- Deploy the Streamlit dashboard for public access.
+- Add additional statistical tests and analytical techniques.
+- Incorporate more recent mental health datasets for comparison.
+- Expand the dashboard with additional filtering and segmentation capabilities.
+- Develop longitudinal analysis using newer workplace mental health surveys.
+
+---
+
+## Limitations
+
+- The dataset was collected in **2014** and may not reflect current workplace conditions.
+- The survey is self-reported and observational.
+- The sample has a strong representation of respondents from the United States.
+- The dataset is not globally representative.
+- The `comments` field contains substantial missing data and was excluded from quantitative analysis.
+- Statistical relationships represent associations and should not be interpreted as causal effects.
+
+---
+
+## Author
+
+**Kartikey Singh**
+
+**Data Analyst | Power BI | Python | SQL | Excel**
+
+LinkedIn: *[Kartikey_Singh](https://www.linkedin.com/in/btwitskartiksinghdatanalyst/)*
+
+GitHub: *[Kartikey_Singh](https://github.com/T3MP35TT)*
+
+Portfolio: *[Kartikey_Singh](https://sites.google.com/view/kartikeysingh09/home)*
+
+Complete WriteUp: **Coming Soon....**
